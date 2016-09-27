@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:STG_DJO"
+             x:Class="STG_DJO.MainPage">
+
+  <StackLayout Padding="20">
+    <Label FontSize="Large" HorizontalTextAlignment="Center">Welcome to Jardin d'Oliviers!</Label>
+    <BoxView WidthRequest="100" HeightRequest="1" Color="Blue" />
+    
+    <Label>Current wait list:</Label>
+    <ListView x:Name="GroupListView">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.5*" />
+              </Grid.ColumnDefinitions>
+              <Label Text="{Binding Description}" VerticalTextAlignment="Center" /> 
+              <Label Grid.Column="1" Text="{Binding WaitMinutes}" HorizontalTextAlignment="End" VerticalTextAlignment="Center" />
+            </Grid>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    <BoxView WidthRequest="100" HeightRequest="1" Color="Blue" />
+    
+    <Frame x:Name="AddToSeatingListFrame">
+      <StackLayout>
+        <Label>Ready to eat? Tell us about your party:</Label>
+        <Entry x:Name="GroupNameEntry" Placeholder="Party Name" />
+        <Picker x:Name="PartySizePicker" Title="Party Size" />
+        <Button x:Name="AddToWaitListButton" Clicked="AddToWaitListButton_OnClicked" Text="Find me a table"/>
+      </StackLayout>
+    </Frame>
+    <Frame x:Name="ThanksFrame" IsVisible="False">
+      <Label>Thanks! You've been added to our seating list.</Label>
+    </Frame>
+    <Label></Label>
+  </StackLayout>
+
+</ContentPage>
