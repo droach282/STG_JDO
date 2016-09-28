@@ -8,9 +8,9 @@
     <ProjectGuid>{02A6CC61-D896-4D8B-929B-714FE5650572}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>STG_DJO.iOS</RootNamespace>
+    <RootNamespace>STG_RestaurantBuzzer.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>STG_DJOiOS</AssemblyName>
+    <AssemblyName>STG_RestaurantBuzzeriOS</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>

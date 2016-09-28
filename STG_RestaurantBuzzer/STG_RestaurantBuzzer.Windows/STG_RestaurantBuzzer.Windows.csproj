@@ -7,8 +7,8 @@
     <ProjectGuid>{6C7E5C01-8A2B-4C36-AE70-54CBD55F9196}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>STG_DJO.Windows</RootNamespace>
-    <AssemblyName>STG_DJO.Windows</AssemblyName>
+    <RootNamespace>STG_RestaurantBuzzer.Windows</RootNamespace>
+    <AssemblyName>STG_RestaurantBuzzer.Windows</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>

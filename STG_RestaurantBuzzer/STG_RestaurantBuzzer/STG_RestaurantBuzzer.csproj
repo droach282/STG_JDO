@@ -8,8 +8,8 @@
     <ProjectGuid>{793B9F68-A614-4A2D-A0E3-C0669D074571}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>STG_DJO</RootNamespace>
-    <AssemblyName>STG_DJO</AssemblyName>
+    <RootNamespace>STG_RestaurantBuzzer</RootNamespace>
+    <AssemblyName>STG_RestaurantBuzzer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
