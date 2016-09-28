@@ -35,8 +35,12 @@
         <Button x:Name="AddToWaitListButton" Clicked="AddToWaitListButton_OnClicked" Text="Find me a table"/>
       </StackLayout>
     </Frame>
+    
     <Frame x:Name="ThanksFrame" IsVisible="False">
-      <Label>Thanks! You've been added to our seating list.</Label>
+      <StackLayout>
+        <Label>Thanks! You've been added to our seating list.</Label>
+        <Button x:Name="UpdateButton" Clicked="UpdateButton_OnClicked" Text="Update wait list" />
+      </StackLayout>
     </Frame>
     <Label></Label>
   </StackLayout>
