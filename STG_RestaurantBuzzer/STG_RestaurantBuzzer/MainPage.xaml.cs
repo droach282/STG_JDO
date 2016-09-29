@@ -21,6 +21,8 @@ namespace STG_RestaurantBuzzer
                 PartySizePicker.Items.Add(i.ToString());
 
             RefreshParties();
+
+            Device.StartTimer(new TimeSpan(0, 1, 0), RefreshParties);
         }
 
         private void AddToWaitListButton_OnClicked(object sender, EventArgs e)
@@ -39,16 +41,23 @@ namespace STG_RestaurantBuzzer
             ThanksFrame.IsVisible = true;
         }
 
-        private void RefreshParties()
+        private bool RefreshParties()
         {
+            var tableReady = false;
+
             _groups.Clear();
             foreach (var party in _partyRepository.WaitingParties())
             {
                 _groups.Add(party);
                 if (party.Id == _myParty?.Id && party.WaitMinutes == 0)
+                {
                     DisplayAlert("Time to eat!", "Your table is ready! Please check in with the host to be seated.",
                         "OK!");
+                    tableReady = true;
+                }
             }
+
+            return !tableReady;
         }
 
         private void UpdateButton_OnClicked(object sender, EventArgs e)
