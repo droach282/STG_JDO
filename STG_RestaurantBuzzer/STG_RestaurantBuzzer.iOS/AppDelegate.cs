@@ -23,9 +23,59 @@ namespace STG_RestaurantBuzzer.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+
+            var formsApp = new App();
+            formsApp.TableReady += FormsApp_TableReady;
+
+            LoadApplication(formsApp);
+
+            if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+            {
+                var notificationSettings = UIUserNotificationSettings.GetSettingsForTypes(
+                    UIUserNotificationType.Alert | UIUserNotificationType.Sound, null);
+
+                app.RegisterUserNotificationSettings(notificationSettings);
+            }
+
+            if (options != null && options.ContainsKey(UIApplication.LaunchOptionsLocalNotificationKey))
+            {
+                var localNotification =
+                    options[UIApplication.LaunchOptionsLocalNotificationKey] as UILocalNotification;
+
+                if (localNotification != null)
+                {
+                    ShowNotification(localNotification);
+                }
+            }
 
             return base.FinishedLaunching(app, options);
+        }
+
+        public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
+        {
+            ShowNotification(notification);
+        }
+
+        private void ShowNotification(UILocalNotification notification)
+        {
+            var okayAlertController = UIAlertController.Create(notification.AlertAction, notification.AlertBody,
+                UIAlertControllerStyle.Alert);
+            okayAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+
+            Window.RootViewController.PresentViewController(okayAlertController, true, null);
+        }
+
+        private void FormsApp_TableReady()
+        {
+            var notification = new UILocalNotification
+            {
+                FireDate = NSDate.Now, // dangit.
+                AlertAction = "OK",
+                AlertBody = "Your table is ready! Please check in at the front desk to be seated.",
+                SoundName = UILocalNotification.DefaultSoundName
+            };
+
+            UIApplication.SharedApplication.ScheduleLocalNotification(notification);
         }
     }
 }
