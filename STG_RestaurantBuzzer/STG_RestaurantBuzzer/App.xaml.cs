@@ -9,11 +9,16 @@ namespace STG_RestaurantBuzzer
 {
     public partial class App : Application
     {
+        public event Action TableReady;
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new STG_RestaurantBuzzer.MainPage();
+            var page = new STG_RestaurantBuzzer.MainPage();
+            page.TableReady += () => TableReady?.Invoke();
+
+            MainPage = page;
         }
 
         protected override void OnStart()

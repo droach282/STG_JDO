@@ -12,6 +12,8 @@ namespace STG_RestaurantBuzzer
 
         private Party _myParty;
 
+        public event Action TableReady;
+
         public MainPage()
         {
             InitializeComponent();
@@ -51,8 +53,7 @@ namespace STG_RestaurantBuzzer
                 _groups.Add(party);
                 if (party.Id == _myParty?.Id && party.WaitMinutes == 0)
                 {
-                    DisplayAlert("Time to eat!", "Your table is ready! Please check in with the host to be seated.",
-                        "OK!");
+                    TableReady?.Invoke();
                     tableReady = true;
                 }
             }
